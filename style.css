@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.body {
+    background: #FF6969;
+    margin: 0;
+    padding: 0;
+    height: 40vw;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    box-shadow: 5px 5px 50px 5px black;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    width: 40%;
+}
+
+.board-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.tile {
+    background: #FF6969;
+    color: #141E46;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.right {
+    border-right: 5px solid #141E46;
+}
+
+.bottom {
+    border-bottom: 5px solid #141E46;
+}
+
+.tile:hover {
+    filter: brightness(90%);
+}
+
+.clicked {
+    animation: tileClick 100ms ease-in-out;
+}
+
+@keyframes tileClick {
+    from {font-size: 5.5rem;}
+    to {font-size: 5rem;}
+}
+
+.winning-alert {
+    visibility: hidden; 
+    position: absolute; 
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    font-size: 110px;
+    font-weight: 700;
+    color: white;
+    user-select: none;
+}
+
+.blur {
+    filter: blur(3px);
+}
+
+@media only screen and (max-width: 1000px) {
+    .tile {
+        font-size: 3rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .body {
+        width: 80vw;
+        height: 80vw;
+    }
+    .tile {
+        font-size: 3rem;
+    }
+    .game-container {
+        width: 80%;
+        height: 80%;
+    }
+    .winning-alert {
+        font-size: 50px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .tile {
+        font-size: 2rem;
+    }
+}
